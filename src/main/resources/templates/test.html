@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome</title>
+</head>
+
+<body>
+<h1>patients</h1>
+<p id = "par"></p>
+
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<script>
+    $(function () {
+        (function worker() {
+            $.ajax({
+                url: 'ajax1',
+                method: 'GET',
+                success: function (data) {
+                    $('#par').html(data);
+                },
+                complete: function () {
+                    setTimeout(worker, 5000);
+                }
+            })
+        })();
+    });
+</script>
+</body>
+
+</html>

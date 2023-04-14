@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Welcome</title>
+</head>
+
+<body>
+<h1>Patient</h1>
+<input type="submit" id="submit" value="click"/>
+<script src='https://code.jquery.com/jquery-3.6.0.min.js'></script>
+<p id = "1"></p><p id = "2"></p><p id = "3"></p><p id = "4"></p><p id = "5"></p>
+<script>
+  $("#submit").click(function () {
+    $.ajax("ajax2")
+            .done(function (data) {
+              $('#1').html(data.idPatient);
+              $('#2').html(data.firstName);
+              $('#3').html(data.lastName);
+              $('#4').html(data.snils);
+              $('#5').html(data.dateOfBirth);
+            });
+  });
+</script>
+</body>
+
+</html>
